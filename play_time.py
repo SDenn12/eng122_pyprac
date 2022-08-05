@@ -66,5 +66,26 @@
 #
 # print(longest("asdf", "hgdf"))
 
-def move_zeros(lst):
-    return [lst.remove(0).append(0) for c in lst.count(0)]
+# def move_zeros(lst):
+#     for i in range(lst.count(0)):
+#         lst.remove(0)
+#         lst.append(0)
+#     return lst
+#
+#
+# print(move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]))
+
+def unique_in_order(s):
+    lst = [c for c in s]
+    new_lst = [lst[c] for c in range(len(lst)-1) if lst[c] != lst[c+1]]
+    if lst[-1] != lst[-2]:
+        new_lst.insert(lst[-1], )
+    return new_lst
+
+
+
+
+
+
+print(unique_in_order("adfddda"))
+

@@ -87,3 +87,11 @@ def DNA_strand(dna):
 def longest(s1, s2):
     return ''.join(sorted(list(set(s1 + s2))))
 ```
+### moves the zeros to the end in a list
+```python
+def move_zeros(lst):
+    for i in range(lst.count(0)):
+        lst.remove(0)
+        lst.append(0)
+    return lst
+```
