@@ -45,7 +45,7 @@ def duplicate_count(text):
         if letter.isalpha() and letter not in stored.keys() or letter.isdigit() and letter not in stored.keys():
             stored[letter] = 1
         elif letter.isalpha() and letter in stored.keys() or letter.isdigit() and letter in stored.keys():
-            stored[letter] = 2
+            stored[letter] += 1
         else:
             pass
     print(stored)
@@ -60,6 +60,30 @@ def duplicate_count(text):
 def duplicate_count(text):
     return len([c for c in set(s.lower()) if s.lower().count(c)>1])
 
-### AS OF NOW TRYING TO FIGURE OUT WHAT THIS MEANS AND WHAT SETS ARE.
+# sets cant contain duplicates. means for loop gives a 'list' of the unique characters. Then runs through the list
+# of unique characters and appends them if the count is greater than 2.
 ```
+### Swap characters in a string in python
+```python
+# MY SOLUTION
+def DNA_strand(dna):
+    # swap letters a for t and c for g
+    return "".join([c.replace("A","1").replace("T","2").replace("C","3").replace("G","4")
+                   .replace("1", "T").replace("2", "A").replace("3", "G").replace("4", "C") 
+                    for c in dna])
 
+# BEST SOLUTIONS
+#1
+import string
+def DNA_strand(dna):
+    return dna.translate(string.maketrans("ATCG","TAGC"))
+#2
+pairs = {'A':'T','T':'A','C':'G','G':'C'}
+def DNA_strand(dna):
+    return ''.join([pairs[x] for x in dna])
+```
+### combine two strings, only presenting distinct characters and sorting them
+```python
+def longest(s1, s2):
+    return ''.join(sorted(list(set(s1 + s2))))
+```
